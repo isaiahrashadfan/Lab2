@@ -1,5 +1,6 @@
 # Lab 2
-# Author: Christopher Tse
+# Group 4
+# Author: Olden, Christopher Tse
 # Date: 19 February 2024
 
 import random
@@ -15,7 +16,10 @@ def guessing_game():
     while (guess != rnum):
         tries -= 1
         if (tries > 0):
-            guess = int(input('Nope! Too low. Try again (' + str(tries) + ' tries left): '))
+            if (guess < rnum):
+                guess = int(input('Nope! Too low. Try again (' + str(tries) + ' tries left): '))
+            elif (guess > rnum):
+                guess = int(input('Nope! Too high. Try again (' + str(tries) + ' tries left): '))
         else:
             print('Nope! You lost. The number was ' + str(rnum))
             break
@@ -62,6 +66,9 @@ def rps():
     else:
         selection()
 
+
+# Selection
+        
 def selection():
     game = int(input('Which game do you want to play? \t1. Guessing Game\t2. Rock-Paper-Scissors\t3. Exit: '))
     if(game == 1):
@@ -70,6 +77,7 @@ def selection():
         rps()
     else:
         print('Exiting...')
+
 
 # Main
         
